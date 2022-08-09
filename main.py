@@ -3,6 +3,10 @@ from re import S
 from requests import Request, Session
 import json
 import pprint
+import os
+
+os.system('clear')
+print("PyCrypto\nCrypto currencies price consulting API:\n\n")
 
 with open('key.txt') as f:
     apiKey = f.readlines()[0]
@@ -24,4 +28,7 @@ session.headers.update(headers)
 response = session.get(url, params=parameters)
 
 btcPriceUSD = json.loads(response.text)['data']['1']['quote']['USD']['price']
-print("BTC Price: $ " + str("${:0,.2f}".format(btcPriceUSD)))
+print(" - ₿ (BTC): $ " + str("${:0,.2f}".format(btcPriceUSD)))
+
+print("\n\nPress enter to exit.")
+input()
