@@ -3,9 +3,16 @@ from re import S
 from requests import Request, Session
 import json
 import pprint
+from sys import platform
 import os
 
-os.system('clear')
+if platform == "linux" or platform == "linux2":
+    clear = lambda: os.system('clear')
+elif platform == "win32":
+    clear = lambda: os.system('cls')
+
+clear()
+
 print("PyCrypto\nCrypto currencies price consulting API:\n\n")
 
 with open('key.txt') as f:
