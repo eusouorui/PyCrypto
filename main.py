@@ -6,10 +6,10 @@ import pprint
 from sys import platform
 import os
 
-if platform == "linux" or platform == "linux2":
-    clear = lambda: os.system('clear')
-elif platform == "win32":
+if platform == "win32":
     clear = lambda: os.system('cls')
+else:
+    clear = lambda: os.system('clear')
 
 clear()
 
